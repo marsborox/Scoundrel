@@ -10,11 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -704033543785404555, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: type
-      value: monsterYellow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -704033543785404555, guid: 463d843b699001742a9e88512d685da0, type: 3}
+      propertyPath: value
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2795468423302886513, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: m_Name
-      value: CardMonster2
+      value: CardMonster0
       objectReference: {fileID: 0}
     - target: {fileID: 4292923089111252531, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: m_LocalPosition.x

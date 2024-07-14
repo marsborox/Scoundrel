@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -704033543785404555, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: type
-      value: potion
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -704033543785404555, guid: 463d843b699001742a9e88512d685da0, type: 3}
+      propertyPath: value
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2795468423302886513, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: m_Name
