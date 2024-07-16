@@ -18,6 +18,15 @@ public class DungeonDeck : MonoBehaviour
 
     Dictionary<int, List<int>> cardNumberType= new Dictionary<int, List<int>>();
     // Start is called before the first frame update
+    Card card;
+
+    public int tempType;
+    public int tempValue;
+
+    private void Awake()
+    {
+        card = GetComponent<Card>();
+    }
     void Start()
     {
         CreateCardsOfType(15,monsterList0);
@@ -50,33 +59,39 @@ public class DungeonDeck : MonoBehaviour
     
     }
 
-    void PulLCardRetardedIQ0Method()
+    public void PulLCardMethod()
     {
+        Debug.Log("SettingProperties");
         int typeKey = Random.Range(0, 4);
         if (typeKey == 0)
         {
-            ParticularCard(monsterList0);
-            Instantiate(monster0);
             //setValue
+            int cardValue = Random.Range(0, monsterList0.Count);
+            tempType = typeKey;
+            tempValue = cardValue;
         }
         else if (typeKey == 1)
         {
-            ParticularCard(monsterList1);
-            Instantiate(monster1);
             //setValue
+            int cardValue = Random.Range(0, monsterList1.Count);
+            tempType = typeKey;
+            tempValue = cardValue;
         }
         else if (typeKey == 2)
         {
-            ParticularCard(potionList);
-            Instantiate(potion);
             //setValue
+            int cardValue = Random.Range(0, potionList.Count);
+            tempType = typeKey;
+            tempValue = cardValue;
         }
         else if (typeKey == 3)
         {
-            ParticularCard(weaponList);
-            Instantiate(weapon);
             //setValue
+            int cardValue = Random.Range(0, weaponList.Count);
+            tempType = typeKey;
+            tempValue = cardValue;
         }
+        Debug.Log(tempType + " " + tempValue);
     }
     void PullCard()
     {
@@ -111,6 +126,5 @@ public class DungeonDeck : MonoBehaviour
         string position;
         Debug.Log(string.Format("here is output for list " + nameOfList + ": " + string.Join(" ,",list)));
     }
-    // Update is called once per frame
-
+    
 }

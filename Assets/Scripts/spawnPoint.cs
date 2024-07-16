@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class spawnPoint : MonoBehaviour
 {
+
+    [SerializeField]bool isUsed = false;
+    Card card;
+    DungeonDeck dungeonDeck;
+    [SerializeField] Transform spawnTransform;
+
+    [SerializeField] GameObject cardPrefab;
+    private void Awake()
+    {
+        card = GetComponent<Card>();
+        dungeonDeck = GetComponent<DungeonDeck>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +26,14 @@ public class spawnPoint : MonoBehaviour
     void Update()
     {
         
+    }
+    public void SpawnCard()
+    {
+        //if (!isUsed) 
+        {
+            //dungeonDeck.PulLCardIQ0Method(spawnTransform);
+            isUsed = true;
+            Instantiate(cardPrefab,spawnTransform);
+        }
     }
 }

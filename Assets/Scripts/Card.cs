@@ -1,21 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Card : MonoBehaviour
 {
     // 0 monster 1 monster 2 potion 3 weapon
-    [SerializeField] byte type;
-    [SerializeField] byte value;
+    [SerializeField] int cardType;
+    [SerializeField] int cardValue;
     [SerializeField] string description;//remove later
 
     
     bool toldinfo=false;
-
+    DungeonDeck dungeonDeck;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        dungeonDeck = FindObjectOfType<DungeonDeck>();
+    }
+
     void Start()
     {
-        
+        Debug.Log("PullingCardInfo");
+        dungeonDeck.PulLCardMethod();
+        SetProperties();
     }
 
     // Update is called once per frame
@@ -29,18 +37,20 @@ public class Card : MonoBehaviour
         {
             //Debug.Log("Telling Info");
             //toldinfo = true;
-            Debug.Log(type+" "+value+" "+description);
+            Debug.Log(cardType + " "+ cardValue + " "+description);
         }
     }
     public void SetToldInfoFalse()
     {
         toldinfo=false;
     }
-
-    public void SetProperties(byte type,byte value)
+    public void PullCardFromDeck()
     {
-        type = type;
-        value = value;
-
+        
+    }
+    public void SetProperties()
+    {
+        cardType = dungeonDeck.tempType;
+        cardValue = dungeonDeck.tempValue;
     }
 }
