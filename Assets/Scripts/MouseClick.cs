@@ -12,14 +12,14 @@ public class MouseClick : MonoBehaviour//, IPointerClickHandler
     }
     void Update()
     {
-
+        //OnMouseDown();
     }
     void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0))
         {
             card.TellInfo();
-            Destroy(card);
+            //Destroy(this);
         }
     }
 

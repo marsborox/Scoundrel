@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -61,37 +62,52 @@ public class DungeonDeck : MonoBehaviour
 
     public void PulLCardMethod()
     {
-        Debug.Log("SettingProperties");
+        //Debug.Log("SettingProperties");
         int typeKey = Random.Range(0, 4);
-        if (typeKey == 0)
+        if (typeKey == 0 && monsterList0.Count > 0)
         {
             //setValue
-            int cardValue = Random.Range(0, monsterList0.Count);
+            int cardValueIndex = Random.Range(0, monsterList0.Count);
             tempType = typeKey;
-            tempValue = cardValue;
+            tempValue = monsterList0.ElementAt(cardValueIndex);
+
+            monsterList0.Remove(monsterList0[cardValueIndex]);
+
         }
-        else if (typeKey == 1)
+        else if (typeKey == 1 && monsterList1.Count > 0)
         {
             //setValue
-            int cardValue = Random.Range(0, monsterList1.Count);
+            int cardValueIndex = Random.Range(0, monsterList1.Count);
             tempType = typeKey;
-            tempValue = cardValue;
+
+            tempValue = monsterList1.ElementAt(cardValueIndex);
+            monsterList1.Remove(monsterList1[cardValueIndex]);
         }
-        else if (typeKey == 2)
+        else if (typeKey == 2 && potionList.Count > 0)
         {
             //setValue
-            int cardValue = Random.Range(0, potionList.Count);
+            int cardValueIndex = Random.Range(0, potionList.Count);
             tempType = typeKey;
-            tempValue = cardValue;
+
+            tempValue = potionList.ElementAt(cardValueIndex);
+            potionList.Remove(potionList[cardValueIndex]);
         }
-        else if (typeKey == 3)
+        else if (typeKey == 3 && weaponList.Count > 0)
         {
             //setValue
-            int cardValue = Random.Range(0, weaponList.Count);
+            int cardValueIndex = Random.Range(0, weaponList.Count);
             tempType = typeKey;
-            tempValue = cardValue;
+
+            tempValue = weaponList.ElementAt(cardValueIndex);
+            weaponList.Remove(weaponList[cardValueIndex]);
         }
-        Debug.Log(tempType + " " + tempValue);
+        else if(monsterList0.Count==0&& monsterList1.Count==0&& potionList.Count==0&& weaponList.Count == 0)
+        {
+
+            Debug.Log("GG");
+        }
+        else PulLCardMethod();
+        //Debug.Log(tempType + " " + tempValue);
     }
     void PullCard()
     {

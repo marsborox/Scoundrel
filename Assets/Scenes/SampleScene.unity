@@ -1034,19 +1034,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardMonster2
       objectReference: {fileID: 0}
+    - target: {fileID: 3760175183524717102, guid: c5e772e1da3b42049973a231f87abc23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5619254069295268026, guid: c5e772e1da3b42049973a231f87abc23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8903210037553639115, guid: c5e772e1da3b42049973a231f87abc23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4393301727231969911, guid: c5e772e1da3b42049973a231f87abc23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5e772e1da3b42049973a231f87abc23, type: 3}
 --- !u!1 &752381817
 GameObject:
@@ -1859,6 +1854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardPotion
       objectReference: {fileID: 0}
+    - target: {fileID: 7831507504616880727, guid: c4623d355c6265c468cf4c8d2486e4da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8212282999517540373, guid: c4623d355c6265c468cf4c8d2486e4da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.92
@@ -1902,16 +1901,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1547637592806594755, guid: c4623d355c6265c468cf4c8d2486e4da, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2526316696656410290, guid: c4623d355c6265c468cf4c8d2486e4da, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7240078845796274702, guid: c4623d355c6265c468cf4c8d2486e4da, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4623d355c6265c468cf4c8d2486e4da, type: 3}
 --- !u!1 &1450204655
 GameObject:
@@ -2612,7 +2602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2025613034260003424, guid: 237a38399c453b14baf06512252e23c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6813660292404386202, guid: 237a38399c453b14baf06512252e23c9, type: 3}
       propertyPath: m_LocalScale.x
@@ -2629,16 +2619,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7334436312517073140, guid: 237a38399c453b14baf06512252e23c9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6033751893809739397, guid: 237a38399c453b14baf06512252e23c9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1498180930547257913, guid: 237a38399c453b14baf06512252e23c9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237a38399c453b14baf06512252e23c9, type: 3}
 --- !u!1 &1710874846
 GameObject:
@@ -2799,19 +2780,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardMonster1
       objectReference: {fileID: 0}
+    - target: {fileID: 2248291772252264202, guid: 8ead8806b1d90fd4abd815a43bb443b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7414829141087630750, guid: 8ead8806b1d90fd4abd815a43bb443b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5806217750022904815, guid: 8ead8806b1d90fd4abd815a43bb443b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1721921764054335315, guid: 8ead8806b1d90fd4abd815a43bb443b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ead8806b1d90fd4abd815a43bb443b6, type: 3}
 --- !u!4 &1809309826 stripped
 Transform:
@@ -3398,6 +3374,10 @@ PrefabInstance:
     - target: {fileID: 2795468423302886513, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: m_Name
       value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795468423302886513, guid: 463d843b699001742a9e88512d685da0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4292923089111252531, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: m_LocalPosition.x

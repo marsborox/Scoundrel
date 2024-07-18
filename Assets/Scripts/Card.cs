@@ -32,7 +32,7 @@ public class Card : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("PullingCardInfo");
+        //Debug.Log("PullingCardInfo");
         dungeonDeck.PulLCardMethod();
         SetProperties();
         SetCardSpriteColor();
@@ -50,6 +50,7 @@ public class Card : MonoBehaviour
             //Debug.Log("Telling Info");
             //toldinfo = true;
             Debug.Log(cardType + " "+ cardValue + " "+description);
+            Destroy(this.gameObject);
         }
     }
     public void SetToldInfoFalse()
