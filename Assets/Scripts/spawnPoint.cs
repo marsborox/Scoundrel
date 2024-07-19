@@ -13,7 +13,7 @@ public class spawnPoint : MonoBehaviour
     [SerializeField] GameObject cardPrefab;
     private void Awake()
     {
-        card = GetComponent<Card>();
+        
         dungeonDeck = GetComponent<DungeonDeck>();
     }
     // Start is called before the first frame update

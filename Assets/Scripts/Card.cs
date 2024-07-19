@@ -51,6 +51,7 @@ public class Card : MonoBehaviour
             //toldinfo = true;
             Debug.Log(cardType + " "+ cardValue + " "+description);
             Destroy(this.gameObject);
+            //lower counter in CardSpawner
         }
     }
     public void SetToldInfoFalse()

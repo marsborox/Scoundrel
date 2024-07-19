@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DungeonDeck : MonoBehaviour
@@ -60,46 +61,28 @@ public class DungeonDeck : MonoBehaviour
     
     }
 
+
+
     public void PulLCardMethod()
     {
         //Debug.Log("SettingProperties");
-        int typeKey = Random.Range(0, 4);
-        if (typeKey == 0 && monsterList0.Count > 0)
+        tempType = Random.Range(0, 4);
+        if (tempType == 0 && monsterList0.Count > 0)
         {
-            //setValue
-            int cardValueIndex = Random.Range(0, monsterList0.Count);
-            tempType = typeKey;
-            tempValue = monsterList0.ElementAt(cardValueIndex);
-
-            monsterList0.Remove(monsterList0[cardValueIndex]);
+            PullCardInputList(monsterList0);
 
         }
-        else if (typeKey == 1 && monsterList1.Count > 0)
+        else if (tempType == 1 && monsterList1.Count > 0)
         {
-            //setValue
-            int cardValueIndex = Random.Range(0, monsterList1.Count);
-            tempType = typeKey;
-
-            tempValue = monsterList1.ElementAt(cardValueIndex);
-            monsterList1.Remove(monsterList1[cardValueIndex]);
+            PullCardInputList(monsterList1);
         }
-        else if (typeKey == 2 && potionList.Count > 0)
+        else if (tempType == 2 && potionList.Count > 0)
         {
-            //setValue
-            int cardValueIndex = Random.Range(0, potionList.Count);
-            tempType = typeKey;
-
-            tempValue = potionList.ElementAt(cardValueIndex);
-            potionList.Remove(potionList[cardValueIndex]);
+            PullCardInputList(potionList);
         }
-        else if (typeKey == 3 && weaponList.Count > 0)
+        else if (tempType == 3 && weaponList.Count > 0)
         {
-            //setValue
-            int cardValueIndex = Random.Range(0, weaponList.Count);
-            tempType = typeKey;
-
-            tempValue = weaponList.ElementAt(cardValueIndex);
-            weaponList.Remove(weaponList[cardValueIndex]);
+            PullCardInputList(weaponList);
         }
         else if(monsterList0.Count==0&& monsterList1.Count==0&& potionList.Count==0&& weaponList.Count == 0)
         {
@@ -108,6 +91,13 @@ public class DungeonDeck : MonoBehaviour
         }
         else PulLCardMethod();
         //Debug.Log(tempType + " " + tempValue);
+    }
+    void PullCardInputList(List<int> cardColorList)
+    {
+        //setValue
+        int cardValueIndex = Random.Range(0, cardColorList.Count);
+        tempValue = cardColorList.ElementAt(cardValueIndex);
+        cardColorList.Remove(cardColorList[cardValueIndex]);
     }
     void PullCard()
     {
@@ -145,23 +135,5 @@ public class DungeonDeck : MonoBehaviour
     
 }
 
-//toto je v "nase classe"
-var odoberac = new OdoberacKariet(zoznam);
-odoberac.Vymaz
-    = 
-    //class2 v ktore si vztvorime list a nejak takto
 
-public clas s OdoberacKariet
-{
-    public List<string> Karty { get; set; }
 
-    public OdoberacKariet(List<string> karty)
-    {
-        Karty = karty;
-    }
-
-    public void Vymaz()
-    {
-
-    }
-}
