@@ -144,3 +144,24 @@ public class DungeonDeck : MonoBehaviour
     }
     
 }
+
+//toto je v "nase classe"
+var odoberac = new OdoberacKariet(zoznam);
+odoberac.Vymaz
+    = 
+    //class2 v ktore si vztvorime list a nejak takto
+
+public clas s OdoberacKariet
+{
+    public List<string> Karty { get; set; }
+
+    public OdoberacKariet(List<string> karty)
+    {
+        Karty = karty;
+    }
+
+    public void Vymaz()
+    {
+
+    }
+}
