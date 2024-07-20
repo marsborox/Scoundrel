@@ -18,7 +18,9 @@ public class CardSpawner : MonoBehaviour
     //if counter <2 spawn cards on all empty positions
     //on spawn change bool to false on availibility
 
-
+    //hasnt done much
+    //need some array for spawn points
+    //TrackedReference if they are used or no
 
     // Start is called before the first frame update
     void Start()
