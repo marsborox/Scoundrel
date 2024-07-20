@@ -31,13 +31,15 @@ public class CardSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cardCounter < 1)
+        if (cardCounter < 2)
         {
             SpawnCards();
         }
     }
     void SpawnCards()
     { 
-        
+        //foreach spawnpoint 
+        //if posiiton availibility true perform spawn card on this posiiton
+        //adjust counter on deck
     }
 }

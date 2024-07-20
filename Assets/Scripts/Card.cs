@@ -49,6 +49,8 @@ public class Card : MonoBehaviour
         {
             //Debug.Log("Telling Info");
             //toldinfo = true;
+            //set availibilit true on spawn point
+            
             Debug.Log(cardType + " "+ cardValue + " "+description);
             Destroy(this.gameObject);
             //lower counter in CardSpawner

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: value
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1976725682698897689, guid: 463d843b699001742a9e88512d685da0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2795468423302886513, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: m_Name
       value: CardMonster0
@@ -98,6 +102,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106603730082822201, guid: 463d843b699001742a9e88512d685da0, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106603730082822201, guid: 463d843b699001742a9e88512d685da0, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
