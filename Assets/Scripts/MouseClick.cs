@@ -18,7 +18,7 @@ public class MouseClick : MonoBehaviour//, IPointerClickHandler
     {
         if (Input.GetMouseButtonDown(0))
         {
-            card.TellInfo();
+            card.DoCardAction();
             
             //Destroy(this);
             

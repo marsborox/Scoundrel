@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class DungeonDeck : MonoBehaviour
 {
-    [SerializeField] GameObject monster0;
+    /*[SerializeField] GameObject monster0;
     [SerializeField] GameObject monster1;
     [SerializeField] GameObject potion;
-    [SerializeField] GameObject weapon;
+    [SerializeField] GameObject weapon;*/
     [SerializeField] GameObject spawnPoints;
 
     List<int> monsterList0 = new List<int>();
@@ -86,7 +86,7 @@ public class DungeonDeck : MonoBehaviour
         }
         else if(monsterList0.Count==0&& monsterList1.Count==0&& potionList.Count==0&& weaponList.Count == 0)
         {
-
+            //win the game
             Debug.Log("GG");
         }
         else PulLCardMethod();

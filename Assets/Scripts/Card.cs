@@ -22,12 +22,16 @@ public class Card : MonoBehaviour
     [SerializeField] TextMeshPro valueText2;
     [SerializeField] TextMeshPro typeText;
 
+    public int myPosition;
+
     bool toldinfo=false;
     DungeonDeck dungeonDeck;
+    CardSpawner cardSpawner;
     // Start is called before the first frame update
     private void Awake()
     {
         dungeonDeck = FindObjectOfType<DungeonDeck>();
+        cardSpawner = FindObjectOfType<CardSpawner>();
     }
 
     void Start()
@@ -36,12 +40,21 @@ public class Card : MonoBehaviour
         dungeonDeck.PulLCardMethod();
         SetProperties();
         SetCardSpriteColor();
+        myPosition = cardSpawner.cardPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void DoCardAction()
+    {
+        Debug.Log(cardType + " " + cardValue + " " + description);
+        
+        Destroy(this.gameObject);
+        cardSpawner.usedCardCounter++;
     }
     public void TellInfo()
     {
@@ -53,17 +66,16 @@ public class Card : MonoBehaviour
             
             Debug.Log(cardType + " "+ cardValue + " "+description);
             Destroy(this.gameObject);
+
             //lower counter in CardSpawner
         }
     }
+
     public void SetToldInfoFalse()
     {
         toldinfo=false;
     }
-    public void PullCardFromDeck()
-    {
-        
-    }
+
     void SetCardSpriteColor()
     {   
         cardImage.color = Color.white;
