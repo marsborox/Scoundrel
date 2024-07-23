@@ -111,7 +111,6 @@ public class DungeonDeck : MonoBehaviour
     void ParticularCard(List <int> list)
     {
         int randomCard = Random.Range(0, list.Count);
-
     }
 
     void SpawnCard()

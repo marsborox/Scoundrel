@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bakground
+    uniqueID: 2526449235
+    locked: 0
+  - name: UIComponents
+    uniqueID: 3831173373
+    locked: 0
+  - name: Cards
+    uniqueID: 3500667791
+    locked: 0

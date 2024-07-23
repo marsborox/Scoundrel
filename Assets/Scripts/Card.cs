@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
+using UnityEditor.PackageManager;
 
 public class Card : MonoBehaviour
 {
@@ -27,11 +28,17 @@ public class Card : MonoBehaviour
     bool toldinfo=false;
     DungeonDeck dungeonDeck;
     CardSpawner cardSpawner;
-    // Start is called before the first frame update
+    Health health;
+    WeaponSlot weaponSlot;
+
+
+    
     private void Awake()
     {
         dungeonDeck = FindObjectOfType<DungeonDeck>();
         cardSpawner = FindObjectOfType<CardSpawner>();
+        health = FindObjectOfType<Health>();
+        weaponSlot = FindObjectOfType<WeaponSlot>();
     }
 
     void Start()
@@ -51,9 +58,29 @@ public class Card : MonoBehaviour
 
     public void DoCardAction()
     {
+        if (cardType == 0 || cardType == 1)
+        {
+            Debug.Log("Monster");
+            WeaponUseCheck();
+            Monster(); 
+        }
+        else if (cardType == 2)
+        {
+            Debug.Log("Potion");
+            Potion(); 
+        }
+        else if (cardType == 3)
+        {
+            Debug.Log("Weapon");
+            Weapon(); 
+        }
+
+        else Debug.Log("Error unknown cartd type");
+
+
         Debug.Log(cardType + " " + cardValue + " " + description);
         
-        Destroy(this.gameObject);
+        
         cardSpawner.usedCardCounter++;
     }
     public void TellInfo()
@@ -113,5 +140,38 @@ public class Card : MonoBehaviour
                 break;
         }
             
+    }
+
+    void Monster()
+    {
+
+        //is there weapon
+
+        //do damage over wpn
+
+        //do dmg
+        Destroy(this.gameObject);
+    }
+
+    void Potion()
+    {
+        //was potion used this turn
+
+        //if no, heal
+        Destroy(this.gameObject);
+    }
+
+    void Weapon()
+    {
+        weaponSlot.TakeWeapon(gameObject);
+    }
+
+    void WeaponUseCheck()
+    { 
+        
+    }
+    void UseWeapon()
+    { 
+    
     }
 }

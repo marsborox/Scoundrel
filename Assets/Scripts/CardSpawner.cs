@@ -46,14 +46,12 @@ public class CardSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        CountCardsOnTable();
+        //CountCardsOnTable();
         if (usedCardCounter == 3)
         {
             SpawnCardsOnSpawnPoints();
         }
     }
-    
-
     public void SpawnCardsOnSpawnPoints()
     {
         //Debug.Log("start of spawn");
@@ -64,8 +62,8 @@ public class CardSpawner : MonoBehaviour
         //Debug.Log("End of spawn");
         Debug.Log(cardOnTableCounter);
         usedCardCounter=0;
-
     }
+
     void SpawnCardOnSpawnPoint(GameObject thisGameobject)
     {
         if (thisGameobject.transform.childCount == 1)
@@ -76,15 +74,15 @@ public class CardSpawner : MonoBehaviour
             //Debug.Log("End of spawning");
         }
     }
-
+    
+    /*
     void CheckObjectsOnSpawn(GameObject thisGameobject)
     {
-        
         cardOnTableCounter = +thisGameobject.transform.childCount;
     }
-
+    
     void CountCardsOnTable()
-    {
+    {   
         cardOnTableCounter = 0;
         CheckObjectsOnSpawn(spawnPoint0);
         CheckObjectsOnSpawn(spawnPoint1);
@@ -92,6 +90,8 @@ public class CardSpawner : MonoBehaviour
         CheckObjectsOnSpawn(spawnPoint3);
         cardOnTableCounter = cardOnTableCounter -4;
     }
+    */
+
     /* ***************TESTING METHODS*******************
     public void CheckIfObjectHasChildren()
     {

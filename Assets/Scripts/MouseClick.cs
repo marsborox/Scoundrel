@@ -24,10 +24,4 @@ public class MouseClick : MonoBehaviour//, IPointerClickHandler
             
         }
     }
-
-    void MousePointer()
-    { 
-        
-    }
-
 }
