@@ -27,12 +27,7 @@ public class CardSpawner : MonoBehaviour
     public int usedCardCounter;
     public int cardOnTableCounter;
     
-    //if counter <2 spawn cards on all empty positions
-    //on spawn change bool to false on availibility
 
-    //hasnt done much
-    //need some array for spawn points
-    //TrackedReference if they are used or no
     void Awake()
     { 
         
@@ -52,6 +47,7 @@ public class CardSpawner : MonoBehaviour
             SpawnCardsOnSpawnPoints();
         }
     }
+    //on all spawn points if no card is on them spawn card
     public void SpawnCardsOnSpawnPoints()
     {
         //Debug.Log("start of spawn");
@@ -64,6 +60,8 @@ public class CardSpawner : MonoBehaviour
         usedCardCounter=0;
     }
 
+
+    //spawn card on spawnpoint if no card is on it
     void SpawnCardOnSpawnPoint(GameObject thisGameobject)
     {
         if (thisGameobject.transform.childCount == 1)
@@ -115,6 +113,11 @@ public class CardSpawner : MonoBehaviour
         else { Debug.Log("weDontKnow"); }
     }
     */
+
+
+    //spawn cards on availible positions, discontinued
+
+    /*
     public void SpawnCards()
     {
         if(position0Availibility)
@@ -145,5 +148,5 @@ public class CardSpawner : MonoBehaviour
                 position3Availibility=false;
             }
 
-    }
+    }*/
 }

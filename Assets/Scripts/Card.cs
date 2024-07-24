@@ -26,10 +26,11 @@ public class Card : MonoBehaviour
     public int myPosition;
 
     bool toldinfo=false;
+
+    Player player;
     DungeonDeck dungeonDeck;
     CardSpawner cardSpawner;
-    Health health;
-    WeaponSlot weaponSlot;
+
 
 
     
@@ -37,8 +38,8 @@ public class Card : MonoBehaviour
     {
         dungeonDeck = FindObjectOfType<DungeonDeck>();
         cardSpawner = FindObjectOfType<CardSpawner>();
-        health = FindObjectOfType<Health>();
-        weaponSlot = FindObjectOfType<WeaponSlot>();
+
+        player=FindObjectOfType<Player>();
     }
 
     void Start()
@@ -82,6 +83,7 @@ public class Card : MonoBehaviour
         
         
         cardSpawner.usedCardCounter++;
+        player.UpdateHealth();
     }
     public void TellInfo()
     {
@@ -142,6 +144,8 @@ public class Card : MonoBehaviour
             
     }
 
+
+    //these methods - do card stuff based on what card is it
     void Monster()
     {
 
@@ -158,12 +162,22 @@ public class Card : MonoBehaviour
         //was potion used this turn
 
         //if no, heal
+        if (false)
+        { }
+        else 
+        { 
+            player.health = player.health + cardValue;
+            if (player.health > 20) 
+            { 
+                player.health = 20; 
+            }
+        }
         Destroy(this.gameObject);
     }
 
     void Weapon()
     {
-        weaponSlot.TakeWeapon(gameObject);
+        player.TakeWeapon(gameObject);
     }
 
     void WeaponUseCheck()

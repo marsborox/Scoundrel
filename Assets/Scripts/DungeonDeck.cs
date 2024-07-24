@@ -30,21 +30,24 @@ public class DungeonDeck : MonoBehaviour
         card = GetComponent<Card>();
     }
     void Start()
-    {
+    {//create card references to lists
         CreateCardsOfType(15,monsterList0);
         CreateCardsOfType(15,monsterList1);
         CreateCardsOfType(10,potionList);
         CreateCardsOfType(10,weaponList);
 
+        /*
         cardNumberType.Add(0, monsterList0);
         cardNumberType.Add(1, monsterList1);
         cardNumberType.Add(2, potionList);
         cardNumberType.Add(3, weaponList);
+        */
     }
     void Update()
     {
 
     }
+    //make me cards for each list
     void CreateCardsOfType(int lenght,List <int> list)
     {
         for (int i = 0; i < lenght; i++)
@@ -62,7 +65,7 @@ public class DungeonDeck : MonoBehaviour
     }
 
 
-
+    //pull card from deck
     public void PulLCardMethod()
     {
         //Debug.Log("SettingProperties");
@@ -99,6 +102,8 @@ public class DungeonDeck : MonoBehaviour
         tempValue = cardColorList.ElementAt(cardValueIndex);
         cardColorList.Remove(cardColorList[cardValueIndex]);
     }
+
+    //not used anymore
     void PullCard()
     {
         
@@ -108,16 +113,13 @@ public class DungeonDeck : MonoBehaviour
             ParticularCard(returnedValue); 
         }
     }
+    //testing method
     void ParticularCard(List <int> list)
     {
         int randomCard = Random.Range(0, list.Count);
     }
 
-    void SpawnCard()
-    {
-        
-    }
-
+    //testing method
     public void PrintAllLists()
     {
         CreateOutputStringForTesting(monsterList0, nameof(monsterList0));

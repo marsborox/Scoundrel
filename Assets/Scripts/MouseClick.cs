@@ -14,6 +14,8 @@ public class MouseClick : MonoBehaviour//, IPointerClickHandler
     {
         //OnMouseDown();
     }
+
+    //when click on card do "stuff"
     void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0))
