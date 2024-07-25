@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
 using UnityEditor.PackageManager;
+using UnityEngine.LowLevel;
 
 public class Card : MonoBehaviour
 {
@@ -31,14 +32,12 @@ public class Card : MonoBehaviour
     DungeonDeck dungeonDeck;
     CardSpawner cardSpawner;
 
-
-
+    
     
     private void Awake()
     {
         dungeonDeck = FindObjectOfType<DungeonDeck>();
         cardSpawner = FindObjectOfType<CardSpawner>();
-
         player=FindObjectOfType<Player>();
     }
 
@@ -52,9 +51,9 @@ public class Card : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        PotionUsedColorIndicator();
     }
 
     public void DoCardAction()
@@ -81,9 +80,9 @@ public class Card : MonoBehaviour
 
         Debug.Log(cardType + " " + cardValue + " " + description);
         
-        
         cardSpawner.usedCardCounter++;
         player.UpdateHealth();
+        player.clearDungeon.gameObject.SetActive(false);
     }
     public void TellInfo()
     {
@@ -148,7 +147,7 @@ public class Card : MonoBehaviour
     //these methods - do card stuff based on what card is it
     void Monster()
     {
-
+        player.health = player.health - cardValue;
         //is there weapon
 
         //do damage over wpn
@@ -160,19 +159,26 @@ public class Card : MonoBehaviour
     void Potion()
     {
         //was potion used this turn
-
         //if no, heal
-        if (false)
-        { }
-        else 
-        { 
+        if (!(player.usedPotion))
+        {
+            player.usedPotion = true;
             player.health = player.health + cardValue;
-            if (player.health > 20) 
-            { 
-                player.health = 20; 
+            if (player.health > 20)
+            {
+                player.health = 20;
             }
         }
         Destroy(this.gameObject);
+    }
+
+    void PotionUsedColorIndicator()
+    {
+        if (player.usedPotion&&cardType==2)
+        { cardImage.color = Color.black; }
+
+        if (!player.usedPotion && cardType == 2 )
+        { cardImage.color = Color.white; }
     }
 
     void Weapon()

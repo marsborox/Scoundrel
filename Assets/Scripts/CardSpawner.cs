@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class CardSpawner : MonoBehaviour
 {
-    [SerializeField] Transform position0;
-    [SerializeField] Transform position1;
-    [SerializeField] Transform position2;
-    [SerializeField] Transform position3;
+    //[SerializeField] Transform position0;
+    //[SerializeField] Transform position1;
+    //[SerializeField] Transform position2;
+    //[SerializeField] Transform position3;
 
-    bool position0Availibility = true;
-    bool position1Availibility = true;
-    bool position2Availibility = true;
-    bool position3Availibility = true;
+    //bool position0Availibility = true;
+    //bool position1Availibility = true;
+    //bool position2Availibility = true;
+    //bool position3Availibility = true;
+
+    
 
     [SerializeField] GameObject spawnPoint0;
     [SerializeField] GameObject spawnPoint1;
@@ -26,11 +28,16 @@ public class CardSpawner : MonoBehaviour
 
     public int usedCardCounter;
     public int cardOnTableCounter;
+
+    bool justClearedDungeon = false;
     
+    Player player;
+
+    enum GameState { dealCards, fullDungeon,partialDungeon };
 
     void Awake()
     { 
-        
+        player = FindObjectOfType<Player>();
     }
    
     void Start()
@@ -45,11 +52,19 @@ public class CardSpawner : MonoBehaviour
         if (usedCardCounter == 3)
         {
             SpawnCardsOnSpawnPoints();
+            player.ResetOfUsed();
+        }
+
+        if (justClearedDungeon)
+        {
+            SpawnCardsOnSpawnPoints();
+            justClearedDungeon=false;
         }
     }
     //on all spawn points if no card is on them spawn card
     public void SpawnCardsOnSpawnPoints()
     {
+        //new turn
         //Debug.Log("start of spawn");
         SpawnCardOnSpawnPoint(spawnPoint0);
         SpawnCardOnSpawnPoint(spawnPoint1);
@@ -58,13 +73,33 @@ public class CardSpawner : MonoBehaviour
         //Debug.Log("End of spawn");
         Debug.Log(cardOnTableCounter);
         usedCardCounter=0;
+        //enablePotions;
     }
 
+    public void ClearDungeon()
+    {
+        player.resetDungeon = true;
+        DestroyCardInSlot(spawnPoint0);
+        DestroyCardInSlot(spawnPoint1);
+        DestroyCardInSlot(spawnPoint2);
+        DestroyCardInSlot(spawnPoint3);
+
+        
+        justClearedDungeon = true;
+
+    }
+    void DestroyCardInSlot(GameObject spawnPoint)
+    {
+        for (var i = spawnPoint.transform.childCount - 1; i >= 0; i--)
+        {
+            Object.Destroy(spawnPoint.transform.GetChild(i).gameObject);
+        }
+    }
 
     //spawn card on spawnpoint if no card is on it
     void SpawnCardOnSpawnPoint(GameObject thisGameobject)
     {
-        if (thisGameobject.transform.childCount == 1)
+        if (thisGameobject.transform.childCount !=1)
         {
             //Debug.Log("start of spawning");
             Instantiate(cardPrefab, thisGameobject.transform);

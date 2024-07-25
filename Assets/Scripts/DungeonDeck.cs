@@ -61,7 +61,7 @@ public class DungeonDeck : MonoBehaviour
 
     void PickEmptySpawnPoint()
     { 
-    
+        
     }
 
 
@@ -73,7 +73,6 @@ public class DungeonDeck : MonoBehaviour
         if (tempType == 0 && monsterList0.Count > 0)
         {
             PullCardInputList(monsterList0);
-
         }
         else if (tempType == 1 && monsterList1.Count > 0)
         {
