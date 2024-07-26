@@ -14,26 +14,52 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject weaponSlot;
     [SerializeField] GameObject monsterSlot;
+    [SerializeField] TextMeshPro recentMonsterValue;
+
 
     public bool usedPotion = false;
     public bool resetDungeon = false;
 
-    bool weaponActive = false;
-    bool monsterOnSlot = false;
+    public bool weaponActive = false;
+    public bool monsterOnSlot = false;
+    public bool usingWeapon = false;
+
+
+
+    public int weaponDmg;
+    public int recentMonsterDmg;
+    public int tempRecentMonsterDmg;
+
+
     CardSpawner cardSpawner;
+    Card card;
 
     public Button clearDungeonButton;
+    public Button useWeapon;
+    public Button dontUseWeapon;
+
+    
     private void Awake()
     {
        cardSpawner = FindObjectOfType<CardSpawner>();
-        
+       card=FindObjectOfType<Card>(); 
     }
     private void Start()
     {
         UpdateHealth();
-        Button btn = clearDungeonButton.GetComponent<Button>();
-        btn.onClick.AddListener(ClearDungeon);
+        Button clrDung = clearDungeonButton.GetComponent<Button>();
+        clrDung.onClick.AddListener(ClearDungeon);
+
+        Button useWpn = useWeapon.GetComponent<Button>();
+        useWpn.onClick.AddListener(AttackWithWeapon);
+
+        Button noUseWpn = dontUseWeapon.GetComponent<Button>();
+        noUseWpn.onClick.AddListener(AttackWithoutWeapon);
+
+        DisableWeaponButtons();
     }
+
+
 
     //put weapon into weapon slot
     public void TakeWeapon(GameObject newWeapon)
@@ -69,11 +95,39 @@ public class Player : MonoBehaviour
         clearDungeon.gameObject.SetActive(true);
     }
 
+
     public void ClearDungeon()
     {
         cardSpawner.ClearDungeon();
         clearDungeon.gameObject.SetActive(false);
-        
     }
 
+    public void EnableWeaponButtons()
+    {
+        
+        useWeapon.gameObject.SetActive(true); 
+        dontUseWeapon.gameObject.SetActive(true);
+    }
+
+    public void DisableWeaponButtons()
+    {
+        cardSpawner.ClearDungeon();
+        useWeapon.gameObject.SetActive(false);
+        dontUseWeapon.gameObject.SetActive(false);
+    }
+
+
+    public void AttackWithWeapon()
+    {
+        recentMonsterDmg = tempRecentMonsterDmg;
+        recentMonsterValue.text = recentMonsterDmg.ToString();
+        card.MonsterHitWithWeapon();
+        DisableWeaponButtons();
+    }
+
+    public void AttackWithoutWeapon()
+    {
+        card.MonsterHitNoWeapon();
+        DisableWeaponButtons();
+    }
 }

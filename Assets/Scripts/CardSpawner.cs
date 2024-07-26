@@ -182,6 +182,5 @@ public class CardSpawner : MonoBehaviour
                 Instantiate(cardPrefab, position3); 
                 position3Availibility=false;
             }
-
     }*/
 }

@@ -54,6 +54,7 @@ public class Card : MonoBehaviour
     void FixedUpdate()
     {
         PotionUsedColorIndicator();
+        
     }
 
     public void DoCardAction()
@@ -147,14 +148,41 @@ public class Card : MonoBehaviour
     //these methods - do card stuff based on what card is it
     void Monster()
     {
-        player.health = player.health - cardValue;
-        //is there weapon
+        player.tempRecentMonsterDmg = cardValue;
+        if (player.weaponActive&&player.recentMonsterDmg>=cardValue)
+        {//ask if use weapon
 
-        //do damage over wpn
-
-        //do dmg
-        Destroy(this.gameObject);
+            //do acordingly
+            //unlock weapon Buttons
+            player.EnableWeaponButtons();
+        }
+        else 
+        {
+            MonsterHitNoWeapon();
+        }
     }
+
+    public void MonsterHitWithWeapon()
+    {
+        if (player.weaponDmg - cardValue < 0)
+        {
+            player.health = player.health+ player.weaponDmg - cardValue;
+        }
+
+        player.recentMonsterDmg = cardValue;
+        Destroy(this.gameObject);
+
+        Debug.Log("hitting with weapon");
+    }
+
+
+    public void MonsterHitNoWeapon()
+    {
+        player.health = player.health - cardValue;
+        Destroy(this.gameObject);
+        Debug.Log("hitting no weapon");
+    }
+
 
     void Potion()
     {
@@ -183,7 +211,10 @@ public class Card : MonoBehaviour
 
     void Weapon()
     {
+        player.weaponDmg = cardValue;
         player.TakeWeapon(gameObject);
+        player.recentMonsterDmg = 999;
+        player.weaponActive = true;
     }
 
     void WeaponUseCheck()

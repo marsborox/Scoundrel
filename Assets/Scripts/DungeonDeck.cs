@@ -42,6 +42,7 @@ public class DungeonDeck : MonoBehaviour
         cardNumberType.Add(2, potionList);
         cardNumberType.Add(3, weaponList);
         */
+
     }
     void Update()
     {
